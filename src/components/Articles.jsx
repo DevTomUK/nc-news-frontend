@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 function Articles() {
 
@@ -19,20 +20,24 @@ function Articles() {
         <ul className="articles-list">
           {articlesList.map((article) => {
             return (
-                <li key={article.article_id} className="article-card">
-                    <img className="article-card-image" src={article.article_img_url} />
-                    <div className="vertical-flex">
-                    <div className="article-card-text">
-                        <h3>{article.title}</h3>
-                    </div>
+                <Link to={`/articles/${article.article_id}`}>
+                    <li key={article.article_id} className="article-card">
+                        <img className="article-card-image" src={article.article_img_url} />
+                        <div className="vertical-flex">
+                            <div className="article-card-right">
+                                <div className="article-card-text">
+                                    <h3>{article.title}</h3>
+                                </div>
 
-                        <div className="article-card-info">
-                            <p>Topic: {article.topic}</p>
-                            <p>Comments: {article.comment_count}</p>
-                            <p>Votes: {article.votes}</p>
+                                <div className="article-card-info">
+                                    <p>Topic: {article.topic}</p>
+                                    <p>Comments: {article.comment_count}</p>
+                                    <p>Votes: {article.votes}</p>
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                </li>
+                    </li>
+                </Link>
             )
             
           })}

@@ -3,9 +3,7 @@ import { Link } from "react-router-dom"
 function Home () {
     return (
         <div className="home-div">
-            <Link to="/articles/">
-            <h2>All Articles</h2>
-            </Link>
+            <h2>Welcome to NC News!</h2>
         </div>
     )
 }

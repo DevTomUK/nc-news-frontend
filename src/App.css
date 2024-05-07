@@ -8,10 +8,30 @@ body {
   padding: 10px;
   display: flex;
 }
+/* 
+header {
+  border-bottom: 2px solid rgb(56, 56, 56);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+} */
+
+h1 {
+  text-shadow: 0 0 4px;
+}
 
 h3 {
+  margin-top: 0;
   font-size: 1em;
   width: 100%;
+}
+
+h4 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 ul {
@@ -19,6 +39,11 @@ ul {
   margin: 0;
   padding: 0;
   display: flex;
+}
+
+hr {
+  width: 90%;
+  border: 1px solid rgb(65, 65, 65);
 }
 
 .articles-list {
@@ -73,10 +98,12 @@ ul {
   font-style: italic;
   font-size: 0.8em;
   justify-content: space-between;
+  width: 100%;
 }
 
 .article-page-body {
-  text-align:justify
+  text-align: justify;
+  font-size: 1.2em;
 }
 
 .article-card-right {
@@ -91,6 +118,57 @@ ul {
 
 .article-page {
   max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  background-color: rgb(70, 70, 70);
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  margin-top: 40px;
+  max-width: 800px;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(56, 56, 56);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.comment-author {
+  margin: 0px;
+  font-size: 1em;
+}
+
+.comment-body {
+  font-size: 0.8em;
+}
+
+.comment-votes-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: small;
+}
+
+.comment-votes {
+  font-variant: small-caps;
 }
 
 @media (min-width: 650px) {
@@ -113,6 +191,7 @@ ul {
     border: 1px solid rgb(43, 43, 43);
     justify-content: start;
     margin: 10px;
+    border-radius: 10px;
   }
 
   .article-card-text {
@@ -148,5 +227,9 @@ ul {
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
+  }
+
+  h3 {
+    margin-top: 20px;
   }
 }

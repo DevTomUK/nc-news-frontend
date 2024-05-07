@@ -1,27 +1,24 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Comments from "./Comments";
 
 function Article() {
     const { article_id } = useParams()
     const [article, setArticle] = useState({})
-    const prevArticle = article_id - 1
-
-    console.log(article)
 
     useEffect(() => {
         axios
         .get(`https://backend-project-c921.onrender.com/api/articles/${article_id}`)
         .then((response) => {
+            const splitDate = response.data.created_at.split("T");
+            const formattedDate = splitDate[0]
+            response.data.created_at = formattedDate
             setArticle(response.data)
         })
     }, []);
 
-    function setDateFormat(originalDate) {
-        const splitDate = originalDate.split("T");
-        const formattedDate = splitDate[0]
-        return formattedDate
-    }
+
 
     return (
         <div className="article-page">
@@ -32,6 +29,7 @@ function Article() {
             </div>
             <img className="article-page-image" src={article.article_img_url} />
             <p className="article-page-body">{article.body}</p>
+            <Comments article_id={article_id}/>
         </div>
     )
 

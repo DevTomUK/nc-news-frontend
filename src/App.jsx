@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Articles from './components/Articles'
 import Article from './components/Article'
+import CommentCard from './components/Comments'
 
 function App() {
 

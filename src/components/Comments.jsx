@@ -10,8 +10,7 @@ function Comments({article_id}) {
         axios
         .get(`https://backend-project-c921.onrender.com/api/articles/${article_id}/comments`)
        .then((response)=>{
-        console.log(response.data.comments)
-        response.data.comments.forEach((comment)=>{
+            response.data.comments.forEach((comment)=>{
             const splitDate = comment.created_at.split("T");
             const formattedDate = splitDate[0]
             comment.created_at = formattedDate
@@ -26,7 +25,7 @@ function Comments({article_id}) {
             <hr></hr>
             <ul className="comments-list">
                 {comments.map((comment)=>{
-                    return <CommentCard key={comment.comment_id} comment={comment}/>
+                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>
                 })}
             </ul>
         </div>

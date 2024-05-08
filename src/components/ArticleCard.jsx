@@ -10,8 +10,8 @@ function ArticleCard({article}) {
                                     <h3>{article.title}</h3>
                                 </div>
 
-                                <div className="article-card-info">
-                                    <p>Topic: {article.topic}</p>
+                                <div className="article-card-info italic-text">
+                                    <p className="capitalize">{article.topic}</p>
                                     <p>Comments: {article.comment_count}</p>
                                     <p>Votes: {article.votes}</p>
                                 </div>

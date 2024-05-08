@@ -60,7 +60,7 @@ function Comments({article_id}) {
                 id="newCommentInput"
                 disabled={commentPending}
                 value={newComment} rows="6" type="text" className={commentPending ? "new-comment-body-disabled" : "new-comment-body"} />
-                <button disabled={newComment.length === 0} className="new-comment-button" onClick={handleSubmitComment}>Submit</button>
+                <button disabled={newComment.length === 0 || commentPending} className="new-comment-button" onClick={handleSubmitComment}>Submit</button>
             </div>
             <ul className="comments-list">
                 {comments.map((comment)=>{

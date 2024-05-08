@@ -169,11 +169,19 @@ hr {
   font-size: x-small;
 }
 
+.true-delete {
+  background-color: white;
+}
+
+.false-delete {
+  background-color: grey;
+}
+
 .comments-section {
   display: flex;
   flex-direction: column;
   text-align: start;
-  background-color: rgb(70, 70, 70);
+  background-color: rgb(44, 44, 44);
   margin: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -196,6 +204,35 @@ hr {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  color: white;
+}
+
+.comment-card-deleting {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  color:rgb(71, 71, 71);
+}
+
+.deleting-text {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 40px;
+  background-color: rgba(99, 99, 99, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 5px;
 }
 
 .new-comment-card {
@@ -236,6 +273,27 @@ textarea {
 
 .new-comment-body {
   font-size: 1em;
+}
+
+.comment-delete-button {
+  display: flex;
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(27, 27, 27);
+  color: rgb(201, 201, 201);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-delete-button:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(173, 173, 173);
+  cursor: pointer;
 }
 
 .new-comment-body-disabled {
@@ -281,6 +339,7 @@ textarea {
   color: white;
   background-color: rgb(48, 48, 48);
   border: 2px solid grey;
+  min-width: 100px;
 }
 
 .vote-arrow {

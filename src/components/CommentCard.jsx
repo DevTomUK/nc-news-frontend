@@ -1,7 +1,28 @@
-function CommentCard({ comment, comments, setComments }) {
+import axios from "axios"
+import { deleteComment } from "../api/apiFunctions"
+import { useState } from "react"
+
+function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh }) {
+
+    const [pendingDelete, setPendingDelete] = useState(false)
+
+    function handleDeleteComment(id) {
+        setPendingDelete(true)
+        deleteComment(id)
+        .then(()=>{
+            setPendingDelete(false)
+            setRefresh(Math.random())
+        })
+        .catch(()=>{
+            setPendingDelete(false)
+            setRefresh(Math.random())
+        })
+    }
 
     return (
-        <div className="comment-card">
+        <div className={pendingDelete ? "comment-card-deleting" : "comment-card"}>
+            {pendingDelete && <p className="deleting-text">DELETING</p>}
+            {loggedInUser === comment.author && !pendingDelete && <div onClick={()=>{handleDeleteComment(comment.comment_id)}} className="comment-delete-button">&#10006;</div>}
             <p className="comment-author">{comment.author}:</p>
             <hr />
             <p className="comment-body">"{comment.body}"</p>

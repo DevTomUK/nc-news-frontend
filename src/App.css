@@ -18,6 +18,7 @@ header {
   width: 100%;
   background-color: rgb(37, 37, 37);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 .navbar {
@@ -179,6 +180,7 @@ hr {
   border-radius: 10px;
   margin-top: 40px;
   max-width: 800px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
 }
 
 .comments-list {
@@ -193,6 +195,34 @@ hr {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.new-comment-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(65, 65, 65);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 20px auto;
+  position: relative;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+textarea {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(247, 247, 247);
+  margin: 0 20px 20px 20px;
+}
+
+.new-comment-author {
+  margin: 0px;
+  font-size: 1em;
 }
 
 .comment-author {
@@ -202,6 +232,32 @@ hr {
 
 .comment-body {
   font-size: 0.8em;
+}
+
+.new-comment-body {
+  font-size: 1em;
+}
+
+.new-comment-body-disabled {
+  font-size: 1em;
+  background-color: rgb(196, 196, 196);
+}
+
+.posting-comment {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color: rgba(70, 70, 70, 0.3);
+  width: 30%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  
 }
 
 .comment-votes-div {
@@ -216,6 +272,15 @@ hr {
   font-variant: small-caps;
   display: flex;
   align-items: center;
+}
+
+.new-comment-button {
+  width: 20%;
+  margin-left: auto;
+  margin-right: 20px;
+  color: white;
+  background-color: rgb(48, 48, 48);
+  border: 2px solid grey;
 }
 
 .vote-arrow {

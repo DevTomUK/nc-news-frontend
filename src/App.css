@@ -33,12 +33,20 @@ header {
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  padding-bottom: 10px;
+}
+
+.nav-links li {
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
   font-size: 3em;
   text-shadow: 0 0 4px;
   width: 100%;
+  margin: 20px;
 }
 
 h3 {
@@ -77,6 +85,8 @@ hr {
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
+  background-color: rgb(34, 34, 34);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .article-card-image {
@@ -97,9 +107,17 @@ hr {
 .article-card-info {
   display: flex;
   flex-direction: row;
-  font-size: 0.5em;
+  font-size: 0.8em;
   align-items: center;
   justify-content: space-around;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.italic-text {
+    font-style: italic;
 }
 
 .vertical-flex {
@@ -137,6 +155,17 @@ hr {
   flex-direction: column;
   align-items: center;
   padding: 10px;
+}
+
+.voting {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.small-text {
+  font-size: x-small;
 }
 
 .comments-section {
@@ -185,6 +214,26 @@ hr {
 
 .comment-votes {
   font-variant: small-caps;
+  display: flex;
+  align-items: center;
+}
+
+.vote-arrow {
+  font-size: 2em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.vote-arrow:hover {
+  cursor: pointer;
+  text-shadow: 0 0 8px;
+}
+
+.article-vote {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  position: relative;
 }
 
 @media (min-width: 650px) {
@@ -220,7 +269,8 @@ hr {
   .article-card-info {
     display: flex;
     flex-direction: row;
-    font-size: 0.5em;
+    flex-wrap: wrap;
+    font-size: 0.8em;
     align-items: center;
     justify-content: space-around;
     width: 100%;
@@ -273,6 +323,7 @@ header {
   justify-content: space-around;
   width: 50%;
   max-width: 300px;
+  padding: 0;
 }
 
 }

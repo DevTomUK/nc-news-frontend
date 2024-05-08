@@ -4,9 +4,7 @@ function Header() {
     return (
     <header className="navbar">
         <Link to="/" >
-            <div className="nav-brand">
                 <h1>NC News</h1>   
-            </div>
         </Link>
             <ul className="nav-links">
                 <Link to="/" >

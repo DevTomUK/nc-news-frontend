@@ -12,8 +12,8 @@ function Article() {
 
         setVotePending(true)
 
-        const newVotes = article.votes ++
-        setArticle({...article, newVotes})
+        const newVotes = article.votes +1
+        setArticle({...article, votes: newVotes})
         axios.patch(`https://backend-project-c921.onrender.com/api/articles/${article_id}`, {inc_votes: 1})
         .then(()=>{
             setVotePending(false)
@@ -26,8 +26,8 @@ function Article() {
 
     function handleDownVote(){
         setVotePending(true)
-        const newVotes = article.votes --
-        setArticle({...article, newVotes})
+        const newVotes = article.votes -1
+        setArticle({...article, votes: newVotes})
         axios.patch(`https://backend-project-c921.onrender.com/api/articles/${article_id}`, {inc_votes: -1})
         .then(()=>{
             setVotePending(false)

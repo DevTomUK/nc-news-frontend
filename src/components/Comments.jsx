@@ -64,7 +64,7 @@ function Comments({article_id}) {
             </div>
             <ul className="comments-list">
                 {comments.map((comment)=>{
-                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>
+                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments} loggedInUser={loggedInUser} setRefresh={setRefresh}/>
                 })}
             </ul>
         </div>

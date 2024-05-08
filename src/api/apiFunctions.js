@@ -7,3 +7,7 @@ export function postNewComment(article_id, commentData) {
 export function getCommentsByArticleId(article_id) {
     return axios.get(`https://backend-project-c921.onrender.com/api/articles/${article_id}/comments`)
 }
+
+export function deleteComment(id) {
+    return axios.delete(`https://backend-project-c921.onrender.com/api/comments/${id}`)
+}

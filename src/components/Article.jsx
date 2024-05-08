@@ -9,9 +9,7 @@ function Article() {
     const [votePending, setVotePending] = useState(false)
 
     function handleUpVote(){
-
         setVotePending(true)
-
         const newVotes = article.votes +1
         setArticle({...article, votes: newVotes})
         axios.patch(`https://backend-project-c921.onrender.com/api/articles/${article_id}`, {inc_votes: 1})

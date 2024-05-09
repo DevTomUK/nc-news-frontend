@@ -9,13 +9,13 @@ function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh 
     function handleDeleteComment(id) {
         setPendingDelete(true)
         deleteComment(id)
-        .then(()=>{
+        .then((data)=>{
+            console.log(data, id)
             setPendingDelete(false)
             setRefresh(Math.random())
         })
         .catch(()=>{
             setPendingDelete(false)
-            setRefresh(Math.random())
         })
     }
 

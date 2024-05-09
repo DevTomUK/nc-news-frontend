@@ -129,9 +129,9 @@ header {
 .article-card-text {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  flex: 1;
-
+  width: 90%;
+  margin: auto auto;
+  overflow: hidden;
 }
 
 .article-card-info {
@@ -140,6 +140,7 @@ header {
   font-size: 0.8em;
   align-items: center;
   justify-content: space-around;
+  border-top: 1px solid rgb(48, 48, 48);
 }
 
 .article-page-image {
@@ -204,6 +205,58 @@ header {
   align-items: center;
   font-size: 1.5em;
   position: relative;
+}
+
+/* SORT AND ORDER */
+
+.sort-and-order-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+}
+
+.sort-by-div {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sort-by-div > p, .order-by-div > p {
+  color: rgb(221, 221, 221);
+  margin: 10px;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.sort-by-div > p:hover, .order-by-div > p:hover {
+  color: rgb(182, 189, 255);
+  cursor: pointer;
+}
+
+.order-by-div {
+  margin: 20px;
+}
+
+@media (max-width: 650px) {
+  .sort-by-div {
+    flex-direction: column;
+    margin: 5px;
+  }
+
+  .sort-by-div > p, .order-by-div > p {
+    font-size: 0.8em;
+  }
+
+  .sort-and-order-div > span {
+    font-size: 0.7em;
+  }
+
 }
 
 /* COMMENTS */

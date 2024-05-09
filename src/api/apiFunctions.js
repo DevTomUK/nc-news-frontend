@@ -11,3 +11,7 @@ export function getCommentsByArticleId(article_id) {
 export function deleteComment(id) {
     return axios.delete(`https://backend-project-c921.onrender.com/api/comments/${id}`)
 }
+
+export function getTopicsList() {
+    return axios.get('https://backend-project-c921.onrender.com/api/topics')
+}

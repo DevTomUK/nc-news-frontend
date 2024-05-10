@@ -29,7 +29,7 @@ NC News Front End is a React.js application that provides users with access to n
 - State management best practices
 - App planning and design using component trees and wireframes
 - Data fetching with Axios
-- Utilization of React hooks such as useState, useEffect, useParams, and useSearchParams
+- Utilisation of React hooks such as useState, useEffect, useParams, and useSearchParams
 - Implementing React context
 - Optimistic rendering for improved user experience
 - Styling

@@ -12,8 +12,20 @@ function Comments({article_id}) {
     const [commentData, setCommentData] = useState({})
     const [commentPending, setCommentPending] = useState(false)
     const [refresh, setRefresh] = useState(0)
+    const [commentTooShort, setCommentTooShort] = useState(false)
+
+    useEffect(()=>{
+        if (newComment.length > 0) {
+            setCommentTooShort(false)
+        }
+    }, [newComment])
 
     function handleSubmitComment(e) {
+        if (newComment.length === 0) {
+            setCommentTooShort(true)
+        } else {
+            setCommentTooShort(false)
+        console.log("SUBMIT COMMENTS")
         setCommentPending(true)
         e.preventDefault()
         postNewComment(article_id, commentData)
@@ -24,7 +36,7 @@ function Comments({article_id}) {
         })
         .catch((error)=>{
             setCommentPending(false)
-        })
+        })}
     }
 
     useEffect(()=>{
@@ -60,7 +72,10 @@ function Comments({article_id}) {
                 id="newCommentInput"
                 disabled={commentPending}
                 value={newComment} rows="6" type="text" className={commentPending ? "new-comment-body-disabled" : "new-comment-body"} />
-                <button disabled={newComment.length === 0 || commentPending} className="new-comment-button" onClick={handleSubmitComment}>Submit</button>
+                <div className="submit-comment-div">
+                    {commentTooShort && <p className="comment-too-short-text">Comment Too Short</p>}
+                    <button disabled={commentPending} className="new-comment-button" onClick={handleSubmitComment}>Submit</button>
+                </div>
             </div>
             <ul className="comments-list">
                 {comments.map((comment)=>{

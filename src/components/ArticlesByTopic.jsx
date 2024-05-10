@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import ArticleCard from "./ArticleCard"
 import { useParams, useSearchParams } from "react-router-dom"
 import SortOrder from "./SortOrder"
+import { NcLogo } from "./NcLogo"
+import NotFoundTopic from "./NotFoundTopic"
 
 function ArticlesByTopic() {
 
@@ -10,6 +12,7 @@ function ArticlesByTopic() {
 
     const [articlesList, setArticlesList] = useState([])
 
+    const [noTopicsFound, setNoTopicsFound] = useState(false)
 
     const [searchParams, setSearchParams] = useSearchParams();
     const [sortBy, setSortBy] = useState("")
@@ -31,14 +34,22 @@ function ArticlesByTopic() {
       axios
       .get(getRequest)
       .then((response)=>{
+        setNoTopicsFound(false)
         setArticlesList(response.data.articles)
       })
+      .catch((error)=>{
+        setNoTopicsFound(true)
+    })
     }, [sortBy, orderBy, topic])
 
+    if (noTopicsFound) {
+      return <NotFoundTopic />
+  }
 
     return (
       <>
       <SortOrder setSearchParams={setSearchParams} setSortBy={setSortBy} setOrderBy={setOrderBy}/>
+      <hr />
         <ul className="articles-list articles-by-topic">
           {articlesList.map((article) => {
             return (

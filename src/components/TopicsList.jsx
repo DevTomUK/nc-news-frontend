@@ -17,8 +17,10 @@ function TopicsList({topicsList, setTopicsList}) {
 
     return (
             <ul className="topic-list">
+            <h2>Topics:</h2>
+            <br />
             {topicsList.map((topic)=>{
-                return <div key={topic.slug} className="topic-div">
+                return <div tabindex="0" key={topic.slug} className="topic-div">
                     <img className="topic-image" src={`/images/${topic.slug}.jpeg`} />
                     <Link to={topic.slug}>
                         <div className="topic-card-text">

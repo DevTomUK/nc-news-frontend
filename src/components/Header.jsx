@@ -12,10 +12,10 @@ function Header() {
                     <li>Home</li>
                 </Link>
                 <Link to="/articles/" >
-                    <li>All Articles</li>
+                    <li>Articles</li>
                 </Link>
                 <Link to="/topics/" >
-                    <li>All Topics</li>
+                    <li>Topics</li>
                 </Link>
             </ul>
     </header>

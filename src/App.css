@@ -538,7 +538,7 @@ textarea {
   padding: 10px;
 }
 
-.topic-div:hover {
+.topic-div:hover, .topic-div:focus {
   background-color: rgb(39, 39, 39);
   cursor: pointer;
 }

@@ -10,13 +10,21 @@ import TopicsList from './components/TopicsList'
 import TopicTabs from './components/TopicTabs'
 import ArticlesByTopic from './components/ArticlesByTopic'
 import NotFound from './components/NotFound'
+import UserContext from './contexts/UserContext'
 
 function App() {
 
+  const [user, setUser] = useState(null)
+  const login = () => {
+    setUser("jessjelly")
+  }
+  const logout = () => {
+    setUser(null)
+  }
   const [topicsList, setTopicsList] = useState([])
 
   return (
-    <>
+    <UserContext.Provider value={{ user, login, logout }}>
       <Header />
       <Routes>
         <Route path='*' element={<NotFound />}/>
@@ -27,7 +35,7 @@ function App() {
         <Route path="/topics/" element={<TopicsList topicsList={topicsList} setTopicsList={setTopicsList} />} />
         <Route path="/topics/:topic" element={<><TopicTabs topicsList={topicsList} setTopicsList={setTopicsList} /><ArticlesByTopic /></>} />
       </Routes>
-    </>
+    </UserContext.Provider>
   )
 }
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import UserLoggedIn from "./UserLoggedIn"
 
 function Header() {
 
@@ -18,6 +19,7 @@ function Header() {
                     <li>Topics</li>
                 </Link>
             </nav>
+            <UserLoggedIn />
     </header>
     )
 }

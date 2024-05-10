@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CommentCard from "./CommentCard";
 import { getCommentsByArticleId, postNewComment } from "../api/apiFunctions";
+import UserContext from "../contexts/UserContext";
 
 
 function Comments({article_id}) {
 
+    const { user } = useContext(UserContext)
+
     const [comments, setComments] = useState([])
     const [newComment, setNewComment] = useState("")
-    const [loggedInUser] = useState("jessjelly")
     const [commentData, setCommentData] = useState({})
     const [commentPending, setCommentPending] = useState(false)
     const [refresh, setRefresh] = useState(0)
@@ -18,22 +20,22 @@ function Comments({article_id}) {
             setCommentTooShort(true)
         } else {
             setCommentTooShort(false)
-        setCommentPending(true)
-        e.preventDefault()
-        postNewComment(article_id, commentData)
-        .then((response)=>{
-            setCommentPending(false)
-            setNewComment("")
-            setRefresh(Math.random())
-        })
-        .catch((error)=>{
-            setCommentPending(false)
-        })}
+            setCommentPending(true)
+            e.preventDefault()
+            postNewComment(article_id, commentData)
+            .then((response)=>{
+                setCommentPending(false)
+                setNewComment("")
+                setRefresh(Math.random())
+            })
+            .catch((error)=>{
+                setCommentPending(false)
+            })}
     }
 
     useEffect(()=>{
         setCommentData({
-            username: loggedInUser, 
+            username: user, 
             body: newComment
         })
     }, [newComment])
@@ -75,7 +77,7 @@ function Comments({article_id}) {
             </section>
             <ul className="comments-list">
                 {comments.map((comment)=>{
-                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments} loggedInUser={loggedInUser} setRefresh={setRefresh}/>
+                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments} user={user} setRefresh={setRefresh}/>
                 })}
             </ul>
         </main>

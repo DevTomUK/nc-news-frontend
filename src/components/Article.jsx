@@ -67,10 +67,10 @@ function Article() {
                 <img className="article-page-image" src={article.article_img_url} />
                 <p className="article-page-body">{article.body}</p>
                 <section className="article-vote">
-                    <span tabindex="0" onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
+                    <span tabIndex="0" onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
                         <p>Votes: {article.votes}</p>
                         {votePending && <p className="voting small-text">Voting</p>}
-                    <span tabindex="0" onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
+                    <span tabIndex="0" onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
                 </section>
                 <Comments article_id={article_id}/>
             </article>

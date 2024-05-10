@@ -58,22 +58,22 @@ function Article() {
     }
 
     return (
-        <div className="article-page">
-            <h3 className="article-page-title">{article.title}</h3>
-            <div className="article-page-info">
-                <p>Written by {article.author}</p>
-                <p>Date: {article.created_at}</p>
+            <div className="article-container">
+                <h3 className="article-page-title">{article.title}</h3>
+                <div className="article-page-info">
+                    <p>Written by {article.author}</p>
+                    <p>Date: {article.created_at}</p>
+                </div>
+                <img className="article-page-image" src={article.article_img_url} />
+                <p className="article-page-body">{article.body}</p>
+                <div className="article-vote">
+                    <span onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
+                        <p>Votes: {article.votes}</p>
+                        {votePending && <p className="voting small-text">Voting</p>}
+                    <span onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
+                </div>
+                <Comments article_id={article_id}/>
             </div>
-            <img className="article-page-image" src={article.article_img_url} />
-            <p className="article-page-body">{article.body}</p>
-            <div className="article-vote">
-                <span onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
-                    <p>Votes: {article.votes}</p>
-                    {votePending && <p className="voting small-text">Voting</p>}
-                <span onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
-            </div>
-            <Comments article_id={article_id}/>
-        </div>
     )
 }
 

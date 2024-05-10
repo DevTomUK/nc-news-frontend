@@ -14,18 +14,11 @@ function Comments({article_id}) {
     const [refresh, setRefresh] = useState(0)
     const [commentTooShort, setCommentTooShort] = useState(false)
 
-    useEffect(()=>{
-        if (newComment.length > 0) {
-            setCommentTooShort(false)
-        }
-    }, [newComment])
-
     function handleSubmitComment(e) {
         if (newComment.length === 0) {
             setCommentTooShort(true)
         } else {
             setCommentTooShort(false)
-        console.log("SUBMIT COMMENTS")
         setCommentPending(true)
         e.preventDefault()
         postNewComment(article_id, commentData)
@@ -68,6 +61,7 @@ function Comments({article_id}) {
                 <br />
                 <textarea placeholder="Enter a new comment here..." onChange={(e)=>{
                     setNewComment(e.target.value)
+                    setCommentTooShort(false)
                 }} 
                 id="newCommentInput"
                 disabled={commentPending}

@@ -19,7 +19,7 @@ function TopicsList({topicsList, setTopicsList}) {
             <ul className="topic-list">
             {topicsList.map((topic)=>{
                 return <div key={topic.slug} className="topic-div">
-                    <img className="topic-image" src={`../src/images/${topic.slug}.jpeg`} />
+                    <img className="topic-image" src={`/images/${topic.slug}.jpeg`} />
                     <Link to={topic.slug}>
                         <div className="topic-card-text">
                             <p className="topic-slug">{topic.slug.toUpperCase()}</p>

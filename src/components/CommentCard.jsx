@@ -10,7 +10,6 @@ function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh 
         setPendingDelete(true)
         deleteComment(id)
         .then((data)=>{
-            console.log(data, id)
             setPendingDelete(false)
             setRefresh(Math.random())
         })

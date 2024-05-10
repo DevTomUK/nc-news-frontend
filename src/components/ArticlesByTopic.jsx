@@ -13,6 +13,7 @@ function ArticlesByTopic() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [sortBy, setSortBy] = useState("")
     const [orderBy, setOrderBy] = useState(searchParams.get("order"))
+    const [isLoading, setIsLoading] = useState(false)
 
     // sort by possibilities: "created_at", "title", "topic", "author", "votes", "comment_count", "body"
     // order by: DESC, ASC
@@ -27,14 +28,17 @@ function ArticlesByTopic() {
           getRequest += '&order=DESC'
         }
       }
+      setIsLoading(true)
       axios
       .get(getRequest)
       .then((response)=>{
+        setIsLoading(false)
         setNoTopicsFound(false)
         setArticlesList(response.data.articles)
       })
       .catch((error)=>{
         setNoTopicsFound(true)
+        setIsLoading(false)
     })
     }, [sortBy, orderBy, topic])
 
@@ -46,6 +50,7 @@ function ArticlesByTopic() {
       <>
       <SortOrder setSearchParams={setSearchParams} setSortBy={setSortBy} setOrderBy={setOrderBy}/>
       <hr />
+      {isLoading && <h2>Articles Loading...</h2>}
         <ul className="articles-list articles-by-topic">
           {articlesList.map((article) => {
             return (

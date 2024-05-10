@@ -8,8 +8,8 @@ function SortOrder({setSearchParams, setSortBy, setOrderBy}){
                 </div>
                 <span>Order By: </span>
                 <div className="order-by-div">
-                    <button onClick={()=>{setOrderBy("ASC")}}>Ascending</button>
-                    <button onClick={()=>{setOrderBy("DESC")}}>Descending</button>
+                    <button onClick={()=>{setOrderBy("ASC")}}>⬆</button>
+                    <button onClick={()=>{setOrderBy("DESC")}}>⬇</button>
                 </div>
             </article>
 }

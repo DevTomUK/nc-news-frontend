@@ -19,7 +19,7 @@ function TopicsList({topicsList, setTopicsList}) {
             <h2>Topics:</h2>
             <br />
             {topicsList.map((topic)=>{
-                return <section tabindex="0" key={topic.slug} className="topic-div">
+                return <section tabIndex="0" key={topic.slug} className="topic-div">
                     <img className="topic-image" alt={`image displaying the topic of ${topic.slug}`} src={`/images/${topic.slug}.jpeg`} />
                     <Link to={topic.slug}>
                         <div className="topic-card-text">

@@ -1,7 +1,7 @@
 import { deleteComment } from "../api/apiFunctions"
 import { useState } from "react"
 
-function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh }) {
+function CommentCard({ comment, comments, setComments, user, setRefresh }) {
 
     const [pendingDelete, setPendingDelete] = useState(false)
 
@@ -20,7 +20,7 @@ function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh 
     return (
         <section className={pendingDelete ? "comment-card-deleting" : "comment-card"}>
             {pendingDelete && <p className="deleting-text">DELETING</p>}
-            {loggedInUser === comment.author && !pendingDelete && <div onClick={()=>{handleDeleteComment(comment.comment_id)}} className="comment-delete-button">&#10006;</div>}
+            {user === comment.author && !pendingDelete && <div onClick={()=>{handleDeleteComment(comment.comment_id)}} className="comment-delete-button">&#10006;</div>}
             <p className="comment-author">{comment.author}:</p>
             <hr />
             <p className="comment-body">"{comment.body}"</p>

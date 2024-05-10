@@ -5,7 +5,7 @@ function Header() {
     return (
     <header className="navbar">
         <Link to="/" >
-                <h1>NC News</h1>   
+                <h1 className="nc-red">NC News</h1>   
         </Link>
             <ul className="nav-links">
                 <Link to="/" >

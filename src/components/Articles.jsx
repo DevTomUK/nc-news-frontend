@@ -36,6 +36,7 @@ function Articles() {
     return (
       <>
       <SortOrder setSearchParams={setSearchParams} setSortBy={setSortBy} setOrderBy={setOrderBy}/>
+      <hr />
         <ul className="articles-list">
           {articlesList.map((article) => {
             return (         

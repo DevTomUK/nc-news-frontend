@@ -9,6 +9,7 @@ import CommentCard from './components/Comments'
 import TopicsList from './components/TopicsList'
 import TopicTabs from './components/TopicTabs'
 import ArticlesByTopic from './components/ArticlesByTopic'
+import NotFound from './components/NotFound'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path='*' element={<NotFound />}/>
         <Route path="/" element={<Home />} />
         <Route path="/articles/" element={<Articles />} />
         <Route path="/articles/:article_id" element={<Article />} />

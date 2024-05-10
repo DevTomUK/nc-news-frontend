@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Comments from "./Comments";
+import NotFoundArticle from "./NotFoundArticle";
 
 function Article() {
     const { article_id } = useParams()
     const [article, setArticle] = useState({})
     const [votePending, setVotePending] = useState(false)
+    const [noArticleFound, setNoArticleFound] = useState(false)
 
     function handleUpVote(){
         setVotePending(true)
@@ -40,12 +42,20 @@ function Article() {
         axios
         .get(`https://backend-project-c921.onrender.com/api/articles/${article_id}`)
         .then((response) => {
+            setNoArticleFound(false)
             const splitDate = response.data.created_at.split("T");
             const formattedDate = splitDate[0]
             response.data.created_at = formattedDate
             setArticle(response.data)
         })
+        .catch((error)=>{
+            setNoArticleFound(true)
+        })
     }, [article_id]);
+
+    if (noArticleFound) {
+        return <NotFoundArticle />
+    }
 
     return (
         <div className="article-page">

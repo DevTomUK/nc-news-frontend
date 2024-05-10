@@ -14,6 +14,8 @@ function TopicTabs({topicsList, setTopicsList}) {
     }, [])
 
     return (
+        <>
+        <div className="spacer"></div>
         <ul className="topics-tabs-div">
             {topicsList.map((topicItem)=>{
                 return (
@@ -26,6 +28,7 @@ function TopicTabs({topicsList, setTopicsList}) {
             })}
 
         </ul>
+        </>
 )   
 }
 

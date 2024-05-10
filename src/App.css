@@ -3,7 +3,7 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 140px;
 }
 
 .center-items {
@@ -21,14 +21,14 @@
   font-size: 20vw;
 }
 
-h1 {
+/* header {
   font-size: 3em;
   text-shadow: 0 0 4px;
   width: 100%;
   margin: 0px;
   margin-top: 20px;
   margin-bottom: 20px;
-}
+} */
 
 h2 {
   text-transform: capitalize;
@@ -81,7 +81,12 @@ hr {
 
 /* HEADER */
 
-header {
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   border-bottom: 2px solid rgb(56, 56, 56);
   position: fixed;
   top: 0;
@@ -90,13 +95,6 @@ header {
   background-color: rgb(37, 37, 37);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   z-index: 10;
-}
-
-.navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .nav-links {
@@ -272,18 +270,6 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-.sort-by-div > p, .order-by-div > p {
-  color: rgb(221, 221, 221);
-  margin: 10px;
-  border: 1px solid grey;
-  padding: 10px;
-}
-
-.sort-by-div > p:hover, .order-by-div > p:hover {
-  color: rgb(182, 189, 255);
-  cursor: pointer;
 }
 
 .order-by-div {
@@ -575,7 +561,7 @@ textarea {
   border-bottom: 1px solid black;
   position: fixed;
   background-color: rgb(24, 24, 24);
-  top: 145px;
+  top: 125px;
   font-size: 0.8em;
   z-index: 2;
 }
@@ -684,7 +670,7 @@ textarea {
   }
 
   .topics-tabs-div {
-    top: 110px;
+    top: 90px;
     font-size: 1em;
   }
 

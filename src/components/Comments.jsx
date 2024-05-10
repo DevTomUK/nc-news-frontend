@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import axios from "axios";
 import CommentCard from "./CommentCard";
 import { getCommentsByArticleId, postNewComment } from "../api/apiFunctions";
 
@@ -52,31 +51,34 @@ function Comments({article_id}) {
     }, [refresh])
 
     return (
-        <div className="comments-section">
+        <main className="comments-section">
             <h4>Comments:</h4>
             <hr></hr>
-            <div className="new-comment-card" >
+            <section className="new-comment-card" >
                 {commentPending && <p className="posting-comment">Posting...</p>}
                 <p className="new-comment-author">UserNameHere</p>
                 <br />
-                <textarea placeholder="Enter a new comment here..." onChange={(e)=>{
-                    setNewComment(e.target.value)
-                    setCommentTooShort(false)
-                }} 
-                id="newCommentInput"
-                disabled={commentPending}
-                value={newComment} rows="6" type="text" className={commentPending ? "new-comment-body-disabled" : "new-comment-body"} />
-                <div className="submit-comment-div">
-                    {commentTooShort && <p className="comment-too-short-text">Comment Too Short</p>}
-                    <button disabled={commentPending} className="new-comment-button" onClick={handleSubmitComment}>Submit</button>
-                </div>
-            </div>
+                <form onSubmit={handleSubmitComment}>
+                    <label htmlFor="newCommentInput">New Comment:</label>
+                    <textarea placeholder="Enter comment here..." onChange={(e)=>{
+                        setNewComment(e.target.value)
+                        setCommentTooShort(false)
+                    }} 
+                    id="newCommentInput"
+                    disabled={commentPending}
+                    value={newComment} rows="6" type="text" className={commentPending ? "new-comment-body-disabled" : "new-comment-body"} />
+                    <div className="submit-comment-div">
+                        {commentTooShort && <p className="comment-too-short-text">Comment Too Short</p>}
+                        <button disabled={commentPending} className="new-comment-button">Submit</button>
+                    </div>
+                </form>
+            </section>
             <ul className="comments-list">
                 {comments.map((comment)=>{
                     return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments} loggedInUser={loggedInUser} setRefresh={setRefresh}/>
                 })}
             </ul>
-        </div>
+        </main>
     )
 }
 

@@ -1,4 +1,3 @@
-import axios from "axios"
 import { deleteComment } from "../api/apiFunctions"
 import { useState } from "react"
 
@@ -19,7 +18,7 @@ function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh 
     }
 
     return (
-        <div className={pendingDelete ? "comment-card-deleting" : "comment-card"}>
+        <section className={pendingDelete ? "comment-card-deleting" : "comment-card"}>
             {pendingDelete && <p className="deleting-text">DELETING</p>}
             {loggedInUser === comment.author && !pendingDelete && <div onClick={()=>{handleDeleteComment(comment.comment_id)}} className="comment-delete-button">&#10006;</div>}
             <p className="comment-author">{comment.author}:</p>
@@ -34,7 +33,7 @@ function CommentCard({ comment, comments, setComments, loggedInUser, setRefresh 
                     <span className="vote-arrow">&#8679;</span> 
                 </p>
             </div>
-        </div>
+        </section>
     )
 }
 

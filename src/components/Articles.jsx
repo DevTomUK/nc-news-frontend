@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import ArticleCard from "./ArticleCard"
-import { useParams, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import SortOrder from "./SortOrder"
 
 
@@ -34,7 +34,7 @@ function Articles() {
     }, [sortBy, orderBy])
 
     return (
-      <>
+      <main>
       <SortOrder setSearchParams={setSearchParams} setSortBy={setSortBy} setOrderBy={setOrderBy}/>
       <hr />
         <ul className="articles-list">
@@ -45,7 +45,7 @@ function Articles() {
           })
           }
         </ul>
-</>
+</main>
 )
 }
 

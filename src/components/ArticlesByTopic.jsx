@@ -3,17 +3,13 @@ import { useEffect, useState } from "react"
 import ArticleCard from "./ArticleCard"
 import { useParams, useSearchParams } from "react-router-dom"
 import SortOrder from "./SortOrder"
-import { NcLogo } from "./NcLogo"
 import NotFoundTopic from "./NotFoundTopic"
 
 function ArticlesByTopic() {
 
     const {topic} = useParams()
-
     const [articlesList, setArticlesList] = useState([])
-
     const [noTopicsFound, setNoTopicsFound] = useState(false)
-
     const [searchParams, setSearchParams] = useSearchParams();
     const [sortBy, setSortBy] = useState("")
     const [orderBy, setOrderBy] = useState(searchParams.get("order"))

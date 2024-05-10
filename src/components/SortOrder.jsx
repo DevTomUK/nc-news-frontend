@@ -1,19 +1,17 @@
-import { Link, useSearchParams } from "react-router-dom"
-
 function SortOrder({setSearchParams, setSortBy, setOrderBy}){
-    return <div className="sort-and-order-div">
-            <span>Sort By: </span>
-        <div className="sort-by-div">
-            <p onClick={()=>{setSortBy("created_at")}}>Date</p>
-            <p onClick={()=>{setSortBy("comment_count")}}>Comments</p>
-            <p onClick={()=>{setSortBy("votes")}}>Votes</p>
-        </div>
-            <span>Order By: </span>
-        <div className="order-by-div">
-            <p onClick={()=>{setOrderBy("ASC")}}>Ascending</p>
-            <p onClick={()=>{setOrderBy("DESC")}}>Descending</p>
-        </div>
-    </div>
+    return <article className="sort-and-order-div">
+                <span>Sort By: </span>
+                <div className="sort-by-div">
+                    <button onClick={()=>{setSortBy("created_at")}}>Date</button>
+                    <button onClick={()=>{setSortBy("comment_count")}}>Comments</button>
+                    <button onClick={()=>{setSortBy("votes")}}>Votes</button>
+                </div>
+                <span>Order By: </span>
+                <div className="order-by-div">
+                    <button onClick={()=>{setOrderBy("ASC")}}>Ascending</button>
+                    <button onClick={()=>{setOrderBy("DESC")}}>Descending</button>
+                </div>
+            </article>
 }
 
 export default SortOrder

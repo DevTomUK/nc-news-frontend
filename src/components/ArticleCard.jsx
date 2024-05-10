@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function ArticleCard({article}) {
     return <Link to={`/articles/${article.article_id}`}>
                     <li className="article-card">
-                        <img className="article-card-image" src={article.article_img_url} />
+                        <img alt={`Image for the article titled ${article.title}`} className="article-card-image" src={article.article_img_url} />
                         <div className="vertical-flex">
                             <div className="article-card-right">
                                 <div className="article-card-text">

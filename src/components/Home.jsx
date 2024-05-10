@@ -2,9 +2,9 @@ import { NcLogo } from "./NcLogo"
 
 function Home () {
     return (
-        <div className="home-div">
+        <main className="home-div">
 		<NcLogo />
-		</div>
+		</main>
     )
 }
 

@@ -7,7 +7,7 @@ function Header() {
         <Link to="/" >
                 <h1 className="nc-red">NC News</h1>   
         </Link>
-            <ul className="nav-links">
+            <nav className="nav-links">
                 <Link to="/" >
                     <li>Home</li>
                 </Link>
@@ -17,7 +17,7 @@ function Header() {
                 <Link to="/topics/" >
                     <li>Topics</li>
                 </Link>
-            </ul>
+            </nav>
     </header>
     )
 }

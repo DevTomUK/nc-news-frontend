@@ -58,22 +58,22 @@ function Article() {
     }
 
     return (
-            <div className="article-container">
+            <article className="article-container">
                 <h3 className="article-page-title">{article.title}</h3>
-                <div className="article-page-info">
+                <section className="article-page-info">
                     <p>Written by {article.author}</p>
                     <p>Date: {article.created_at}</p>
-                </div>
+                </section>
                 <img className="article-page-image" src={article.article_img_url} />
                 <p className="article-page-body">{article.body}</p>
-                <div className="article-vote">
-                    <span onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
+                <section className="article-vote">
+                    <span tabindex="0" onClick={handleDownVote}  className="vote-arrow">&#8681;</span> 
                         <p>Votes: {article.votes}</p>
                         {votePending && <p className="voting small-text">Voting</p>}
-                    <span onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
-                </div>
+                    <span tabindex="0" onClick={handleUpVote} className="vote-arrow">&#8679;</span>                 
+                </section>
                 <Comments article_id={article_id}/>
-            </div>
+            </article>
     )
 }
 
